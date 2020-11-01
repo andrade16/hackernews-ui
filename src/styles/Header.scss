@@ -1,0 +1,25 @@
+.MuiAppBar-root { // Material UI toolbar is already applying display:flex
+  height: 45px;
+  flex-direction: row!important;
+  justify-content: space-between;
+  align-items: center;
+  padding: 8px;
+
+  .icon-title-container {
+    display: flex;
+    align-items: center;
+
+    .hackerfeed-icon {
+      width: 45px;
+      height: 45px
+    }
+
+    .hackerfeed-title {
+      color: black;
+    }
+  }
+}
+
+.MuiAppBar-colorPrimary {
+  background-color: #ff6600!important;
+}
