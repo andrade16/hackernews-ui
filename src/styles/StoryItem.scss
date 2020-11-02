@@ -1,0 +1,38 @@
+.story-card {
+  width: 500px;
+  min-width: 275px;
+  margin-top: 10px;
+  margin-bottom: 10px;
+
+  .story-title {
+    font-size: 14px;
+    font-weight: bold;
+  }
+
+  .story-link {
+    text-decoration: none;
+    color: black;
+  }
+
+  .story-meta {
+    font-size: 12px;
+    color: #828282
+  }
+
+  .story-actions {
+    display: flex;
+    align-items: center;
+    justify-content: flex-end;
+  }
+}
+.MuiCardContent-root {
+  padding: 10px
+}
+
+.MuiCardActions-spacing > :not(:first-child) {
+  margin-left: 0!important;
+}
+
+.story-comments {
+  padding: 0!important;
+}

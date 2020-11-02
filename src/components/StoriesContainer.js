@@ -2,7 +2,7 @@ import React, {Component} from 'react';
 import {getStoryIds} from "../services/hackerNewsAPi";
 import {useInfiniteScroll} from "../hooks/useInfiniteScroll";
 import StoryItem from "./StoryItem";
-import '../styles/Stories.scss'
+import '../styles/StoriesContainer.scss'
 
 // HOC for infinite scroll on StoriesContainer
 export const withInfiniteScroll = (Component) => {
