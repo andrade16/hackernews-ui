@@ -1,5 +1,5 @@
 import React, {Component, useState} from 'react';
-import {getItem} from "../services/hackerNewsAPi";
+import {getItem} from "../../services/hackerNewsApi";
 import Card from "@material-ui/core/Card";
 import CardContent from "@material-ui/core/CardContent";
 import CardActions from '@material-ui/core/CardActions';
@@ -9,9 +9,11 @@ import clsx from 'clsx';
 import IconButton from '@material-ui/core/IconButton';
 import ExpandMoreIcon from '@material-ui/icons/ExpandMore';
 import Typography from "@material-ui/core/Typography";
-import {VIEW_COMMENTS} from "../constants";
-import {mapTime} from "../utils/utils";
-import "../styles/StoryItem.scss";
+import {VIEW_COMMENTS} from "../../constants";
+import {mapTime} from "../../utils/utils";
+import { Link } from "react-router-dom";
+
+import "../../styles/StoryItem.scss";
 
 const styles = theme => ({
     expand: {
@@ -33,7 +35,7 @@ const StoryCard = props => {
         setExpanded(!expanded);
     }
 
-    let {by, descendants, id, score, time, title, url, index, kids} = props;
+    let {by, descendants, id, score, time, title, url, kids} = props;
     const {classes} = props;
 
     return (
@@ -43,8 +45,9 @@ const StoryCard = props => {
                     <a className="story-link" href={url}>{title}</a>
                 </Typography>
                 <Typography
-                    className="story-meta">{`${score} points by ${by} | ${mapTime(time)} ago | `}
-                    <a href="#">{`${descendants ? descendants : 0} comments`}</a>
+                    className="story-meta">{`${score} points by ${by}  | ${mapTime(time)} ago | `}
+                    <Link to={{pathname: `/story/${id}`}}>{descendants} comments</Link>
+                    {/*<a href="#">{`${descendants ? descendants : 0} comments`}</a>*/}
                 </Typography>
             </CardContent>
             <CardActions className="story-actions">

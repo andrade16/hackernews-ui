@@ -1,6 +1,6 @@
 import React from "react";
 import {Route, Switch} from 'react-router-dom';
-import Stories from "../components/StoriesContainer";
+import StoriesContainer from "../components/StoriesContainer";
 
 
 const StoriesRouter = ({match, location, category}) => {
@@ -11,7 +11,7 @@ const StoriesRouter = ({match, location, category}) => {
             <Route
                 exact
                 path={match.url}
-                render={routes => <Stories category={category} match={match} {...routes} />}
+                render={routes => <StoriesContainer category={category} match={match} {...routes} />}
             />
         </Switch>
     )

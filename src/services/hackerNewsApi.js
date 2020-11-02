@@ -1,17 +1,11 @@
 import {GET_BEST_STORIES, GET_NEW_STORIES, GET_TOP_STORIES} from '../constants';
 import firebase from 'firebase';
 
-const baseUrl = 'https://hacker-news.firebaseio.com/v0/'
-export const newStoriesUrl = `${baseUrl}newstories.json`;
-export const topStoriesUrl = `${baseUrl}topstories.json`;
-export const storyCommentsUrl = `${baseUrl}item/`
-export const storyUrl = `${baseUrl}item/`
-
 const firebaseConfig = {
     databaseURL : 'https://hacker-news.firebaseio.com/'
 };
 firebase.initializeApp(firebaseConfig);
-const rootRef = firebase.database().ref('v0');
+const firebaseDbRef = firebase.database().ref('v0');
 
 function getStoryIds(type) {
     console.log('TYPE: ', type);
@@ -27,9 +21,8 @@ function getStoryIds(type) {
     }
 }
 
-
 function getStoryItemIds(type) { // returns story ids
-    return rootRef
+    return firebaseDbRef
         .child(type)
         .once('value')
         .then(IdList => {
@@ -38,10 +31,10 @@ function getStoryItemIds(type) { // returns story ids
         })
 }
 
-function getItem(idNumber) {
-    let item = rootRef
+function getItem(id) { // get items based on ids
+    let item = firebaseDbRef
         .child('item')
-        .child(idNumber)
+        .child(id)
         .once('value')
     return item;
 }

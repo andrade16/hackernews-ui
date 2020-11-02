@@ -1,7 +1,7 @@
 import React, {Component} from 'react';
-import {getStoryIds} from "../services/hackerNewsAPi";
+import {getStoryIds} from "../services/hackerNewsApi";
 import {useInfiniteScroll} from "../hooks/useInfiniteScroll";
-import StoryItem from "./StoryItem";
+import StoryItem from "./Story/StoryItem";
 import '../styles/StoriesContainer.scss'
 
 // HOC for infinite scroll on StoriesContainer
@@ -48,8 +48,6 @@ class StoriesContainer extends Component { // acts as my story container
     }
 
     render() {
-        console.log('PROPS: ', this.props);
-        console.log('COUNT: ', this.props.count);
         const {idList, hasError} = this.state;
         const {count} = this.props;
         if (hasError) {
@@ -65,6 +63,4 @@ class StoriesContainer extends Component { // acts as my story container
     }
 }
 
-
 export default withInfiniteScroll(StoriesContainer);
-

@@ -3,6 +3,7 @@ import {Route, Switch, Redirect } from 'react-router-dom';
 import StoriesRouter from './routes/StoriesRouter';
 import Header from './components/Header';
 import {GET_TOP_STORIES, GET_NEW_STORIES, GET_BEST_STORIES} from "./constants";
+import FullStory from "./components/FullStory/FullStory";
 import './App.scss';
 
 function App() {
@@ -30,6 +31,7 @@ function App() {
                   <StoriesRouter{...props} category={GET_NEW_STORIES}/>
               )}
           />
+          <Route exact path={`/story/:id`} component={FullStory} />
 
       </Switch>
     </div>
