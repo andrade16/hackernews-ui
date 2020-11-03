@@ -1,7 +1,7 @@
-import React, { Component } from "react";
+import React, { Component } from 'react';
 import {getItem} from '../../services/hackerNewsApi';
-import IsLoading from "../Loading";
-import Comments from "../Comments/Comments";
+import IsLoading from '../Shared/Loading';
+import Comments from '../Comments/Comments';
 import FullStoryCard from "./FullStoryCard";
 import '../../styles/FullStory/FullStory.scss'
 
@@ -12,10 +12,8 @@ class FullStory extends Component {
             itemData: {},
             comments: [],
             hasError: false,
-            notFound: false,
             isFetching: true
         }
-
     }
 
     componentDidMount() {
@@ -28,20 +26,15 @@ class FullStory extends Component {
             let itemData = item.val();
             if(itemData) {
                 this.setState({itemData, isFetching: false});
-            } else {
-                this.setState({notFound: true});
             }
         })
     }
 
     render() {
-        const {hasError, notFound, isFetching, itemData} = this.state;
+        const {hasError, isFetching, itemData} = this.state;
 
         if(hasError) {
             return <div className="error">Error occured!</div>
-        }
-        if(notFound) {
-            return <div style={{display: 'flex', flexDirection: 'column'}}>We could not find the following item.</div>
         }
 
         return (

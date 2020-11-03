@@ -1,9 +1,10 @@
 import React, {Component} from 'react';
-import {getStoryIds} from "../services/hackerNewsApi";
-import {useInfiniteScroll} from "../hooks/useInfiniteScroll";
-import StoryItem from "./Story/StoryItem";
-import '../styles/StoriesContainer.scss'
+import {getStoryIds} from '../../services/hackerNewsApi';
+import {useInfiniteScroll} from '../../hooks/useInfiniteScroll';
+import StoryItem from '../Story/StoryItem';
+import '../../styles/Shared/StoriesContainer.scss'
 
+// Since this is a class component I can't use the custom hook within it.
 // HOC for infinite scroll on StoriesContainer
 export const withInfiniteScroll = (Component) => {
     return (props) => {
@@ -12,7 +13,7 @@ export const withInfiniteScroll = (Component) => {
     }
 }
 
-class StoriesContainer extends Component { // acts as my story container
+class StoriesContainer extends Component {
     constructor(props) {
         super(props);
         this.state = {
@@ -23,20 +24,18 @@ class StoriesContainer extends Component { // acts as my story container
 
     componentDidMount() {
         this.updateStoryItems(this.props.category)
-
     }
 
     updateStoryItems() {
         let {category} = this.props;
 
-        getStoryIds(category).then(idList => {
-            console.log('IDS: ', idList);
+        getStoryIds(category).then(idList => { // gets story Ids
             this.setState({idList: idList})
         });
     }
 
     // This forces a refresh of the page based on the category user selects
-    // if previous category prop is changed, then reset the id list to refetch data
+    // if previous category prop is changed, then reset the id list and refetch data
     componentDidUpdate(prevProps) {
         const {category} = this.props;
         if (prevProps.category !== category) {

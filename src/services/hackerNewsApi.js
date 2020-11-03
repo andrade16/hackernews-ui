@@ -8,7 +8,6 @@ firebase.initializeApp(firebaseConfig);
 const firebaseDbRef = firebase.database().ref('v0');
 
 function getStoryIds(type) {
-    console.log('TYPE: ', type);
     switch (type) {
         case GET_BEST_STORIES:
             return getStoryItemIds("beststories");
@@ -21,17 +20,16 @@ function getStoryIds(type) {
     }
 }
 
-function getStoryItemIds(type) { // returns story ids
+function getStoryItemIds(type) { // returns story ids based on category chosen
     return firebaseDbRef
         .child(type)
         .once('value')
         .then(IdList => {
-            console.log('ID_LIST: ', IdList);
             return IdList.val();
         })
 }
 
-function getItem(id) { // get items based on ids
+function getItem(id) { // get item objects based on ids
     let item = firebaseDbRef
         .child('item')
         .child(id)
@@ -40,4 +38,10 @@ function getItem(id) { // get items based on ids
 }
 
 
-export {getStoryIds, getStoryItemIds, getItem};
+function getItems(ids) { // get all items from array of ids
+    return Promise.all(ids.map(id => getItem(id))).then(item => item.map(data => data.val()));
+}
+
+
+
+export {getStoryIds, getStoryItemIds, getItem, getItems};

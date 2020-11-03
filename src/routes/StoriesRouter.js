@@ -1,11 +1,14 @@
 import React from "react";
 import {Route, Switch} from 'react-router-dom';
-import StoriesContainer from "../components/StoriesContainer";
+import StoriesContainer from "../components/Shared/StoriesContainer";
 
 
 const StoriesRouter = ({match, location, category}) => {
-    console.log("ROUTING...", category, match.url, location)
+    console.log('CATEGORY', category);
+    console.log('MATCH_URL: ', match.url);
+    console.log('LOCATION: ', location);
 
+    // depending on category chosen, StoriesContainer knows what type of stories to get
     return (
         <Switch>
             <Route

@@ -24,12 +24,12 @@ export const useInfiniteScroll = () => {
         if(count + STORY_INCREMENT  >= MAX_STORIES) { // story increments by 20 every scroll
             setCount(MAX_STORIES) // quite scrolling if we've exceeded MAX_STORIES
         } else {
-            setCount(count + STORY_INCREMENT) // otherwise increment the current count with increment to fetch display more data
+            setCount(count + STORY_INCREMENT) // otherwise increment the current count with increment to fetch more data
         }
         setLoading(false);
     },[loading])
 
-    useEffect(() => { // cleanup on scoll event
+    useEffect(() => { // cleanup on scroll event
         window.addEventListener('scroll', handleScroll)
         return () => window.removeEventListener('scroll', handleScroll); // unsubscribe from event listener
     }, [])

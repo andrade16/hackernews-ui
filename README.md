@@ -1,70 +1,47 @@
-# Getting Started with Create React App
+# Hacker News Feed
+This project is an alternative UI for the currently existing [Hacker News Feed](https://news.ycombinator.com/news). 
+The data used for this project is retrieved using the [Firebase](https://www.npmjs.com/package/firebase) npm package. 
 
-This project was bootstrapped with [Create React App](https://github.com/facebook/create-react-app).
+## Set Up Instructions and Commands
+In your terminal, navigate to the hackernews-ui directory, and from the root folder run:
 
-## Available Scripts
+- `$ npm install` to install all dependencies
 
-In the project directory, you can run:
+- `$ npm start` to start up the app in the development mode.\
+Open [http://localhost:4000](http://localhost:4000) to view it in the browser.\
+The page should reload if you were to make edits, and show you errors in the console if there are any.
 
-### `npm start`
 
-Runs the app in the development mode.\
-Open [http://localhost:3000](http://localhost:3000) to view it in the browser.
+### Additional Commands
+- `$ npm test` to launch the test runner in the interactive watch mode.
 
-The page will reload if you make edits.\
-You will also see any lint errors in the console.
-
-### `npm test`
-
-Launches the test runner in the interactive watch mode.\
-See the section about [running tests](https://facebook.github.io/create-react-app/docs/running-tests) for more information.
-
-### `npm run build`
-
-Builds the app for production to the `build` folder.\
+- `$ npm run build` to build the app for production to the `build` folder.\
 It correctly bundles React in production mode and optimizes the build for the best performance.
 
-The build is minified and the filenames include the hashes.\
-Your app is ready to be deployed!
 
-See the section about [deployment](https://facebook.github.io/create-react-app/docs/deployment) for more information.
+## Technologies Used
+For this UI project, [Create React App](https://github.com/facebook/create-react-app) was used to get started on development right away. I additionally used [Material-UI](https://material-ui.com/) 
+for some components because of additional functionality their components offer.
+[React Router](https://reactrouter.com/) was also used to make this application more functional in regard to being a single page app. And lastly, [Firebase](https://www.npmjs.com/package/firebase) was used to fetch Hacker News data. 
 
-### `npm run eject`
 
-**Note: this is a one-way operation. Once you `eject`, you can’t go back!**
+## UI Component Design
+The images below highlight some of the more important components involved in this UI project. 
+My hope is that the images will provide some context and guidance as you look through the code. The first image shows the main design for the
+main landing page with hacker news stories:
+![](./InitialStoryRender.png)
 
-If you aren’t satisfied with the build tool and configuration choices, you can `eject` at any time. This command will remove the single build dependency from your project.
+The second image gives a UI breakdown of the FullStory component that renders the story and all associated comments:
+![](./FullScreenRender.png)
 
-Instead, it will copy all the configuration files and the transitive dependencies (webpack, Babel, ESLint, etc) right into your project so you have full control over them. All of the commands except `eject` will still work, but they will point to the copied scripts so you can tweak them. At this point you’re on your own.
+ 
 
-You don’t have to ever use `eject`. The curated feature set is suitable for small and middle deployments, and you shouldn’t feel obligated to use this feature. However we understand that this tool wouldn’t be useful if you couldn’t customize it when you are ready for it.
 
-## Learn More
+## Additonal Notes and Ass
+- I know this project does not meet all the requirements. But I figured submitting this was better than submitting nothing. Any feedback is always appreciated!
+- I made the decision to only present the top comments on the initial screen because some stories had hundreds of comments associated with them.\
+  To render all of those comments when the accordion is down would have rendered a lot of text, making the UI seem cluttered.
+  Instead, I decided to make the comments text a link to a separate route, that would then render a full page component with the story card and all the comments associated with that story.  
+- Due to other obligations from work and interviews, I truly cannot ask for an extension to try to complete more requirements. I'm really sorry! I just have a lot on my plate right now. Something I wish I would have had time to add was unit tests.
+- I want to thank you for the opportunity! I mean that, even if you decide not to move forward.  
 
-You can learn more in the [Create React App documentation](https://facebook.github.io/create-react-app/docs/getting-started).
-
-To learn React, check out the [React documentation](https://reactjs.org/).
-
-### Code Splitting
-
-This section has moved here: [https://facebook.github.io/create-react-app/docs/code-splitting](https://facebook.github.io/create-react-app/docs/code-splitting)
-
-### Analyzing the Bundle Size
-
-This section has moved here: [https://facebook.github.io/create-react-app/docs/analyzing-the-bundle-size](https://facebook.github.io/create-react-app/docs/analyzing-the-bundle-size)
-
-### Making a Progressive Web App
-
-This section has moved here: [https://facebook.github.io/create-react-app/docs/making-a-progressive-web-app](https://facebook.github.io/create-react-app/docs/making-a-progressive-web-app)
-
-### Advanced Configuration
-
-This section has moved here: [https://facebook.github.io/create-react-app/docs/advanced-configuration](https://facebook.github.io/create-react-app/docs/advanced-configuration)
-
-### Deployment
-
-This section has moved here: [https://facebook.github.io/create-react-app/docs/deployment](https://facebook.github.io/create-react-app/docs/deployment)
-
-### `npm run build` fails to minify
-
-This section has moved here: [https://facebook.github.io/create-react-app/docs/troubleshooting#npm-run-build-fails-to-minify](https://facebook.github.io/create-react-app/docs/troubleshooting#npm-run-build-fails-to-minify)

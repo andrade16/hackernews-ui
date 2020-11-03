@@ -1,11 +1,11 @@
-import {mapTime} from "../../utils/utils";
-import React from "react";
-import '../../styles/FullStory/FullStoryCard.scss'
+import {mapTime} from '../../utils/utils';
+import React from 'react';
+import '../../styles/FullStory/FullStoryCard.scss';
 
 
 
 const FullStoryCard = props => {
-    let { by, descendants, score, time, title, url, index } = props;
+    let { by, descendants, score, time, title, url } = props;
 
     return (
         <div className="full-story-root">

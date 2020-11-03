@@ -1,7 +1,7 @@
-import React, { Component } from "react";
-import {getItem} from "../../services/hackerNewsApi";
-import Comment from "./Comment";
-import '../../styles/Comments/Comments.scss'
+import React, { Component } from 'react';
+import {getItem} from '../../services/hackerNewsApi';
+import Comment from './Comment';
+import '../../styles/Comments/Comments.scss';
 
 class Comments extends Component {
     constructor(props) {
@@ -14,25 +14,26 @@ class Comments extends Component {
     }
 
     getComments(storyId) {
-        if(storyId) {
+        if (storyId) {
             getItem(storyId).then(dataSnapshot => {
                 let item = dataSnapshot.val();
                 let kids;
                 if (item) {
                     kids = item.kids || [];
-                    this.setState({ kids });
-                } else this.setState({ notFound: true });
+                    this.setState({kids});
+                }
             });
-        } else {}
+        }
     }
 
+
     render() {
-        console.log('KIDS: ', this.state.kids);
+        const {kids} = this.state;
         return (
             <section className="comments-container">
-                {this.state.notFound
+                {!kids.length
                     ? ""
-                    : this.state.kids.map((kid, index) => (
+                    : kids.map((kid, index) => (
                         <Comment key={index} id={kid} />
                     ))}
             </section>

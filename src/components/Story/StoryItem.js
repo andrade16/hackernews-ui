@@ -1,8 +1,8 @@
 import React, {Component} from 'react';
-import {getItem} from "../../services/hackerNewsApi";
-import IsLoading from "../Loading";
+import {getItem} from '../../services/hackerNewsApi';
+import IsLoading from '../Shared/Loading';
 import StoryCard from './StoryCard';
-import "../../styles/StoryItem.scss"
+import '../../styles/Story/StoryItem.scss';
 
 class StoryItem extends Component {
     constructor(props) {

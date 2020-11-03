@@ -1,33 +1,23 @@
-import React, { Component } from "react";
-import {getItem} from "../../services/hackerNewsApi";
-import IsLoading from "../Loading";
+import React, { Component } from 'react';
+import {getItem} from '../../services/hackerNewsApi';
+import {EMPTY_STRING} from '../../constants';
+import IsLoading from '../Shared/Loading';
 import '../../styles/Comments/Comment.scss'
 
 
-function CommentAuthor({by}) { // Author text
-    return (
-        <div className="card">
-            <span>{`by ${by}`}</span>
-        </div>
-    );
-}
-
-const Children = props => {
-    return <div className="comment-children">{props.children}</div>;
-};
-
 // dangerouslySetInnerHTML helps me set the innerHtml for comments
-const CommentBody = ({ text, kids }) => { // recurse render comment based on kids
+// recurse render comments if the comments passed in have kids
+const CommentBody = ({ text, kids }) => {
     return (
         <div className="comment-body">
             <div dangerouslySetInnerHTML={{ __html: text }} />
-            <Children>
+            <div className="comment-children">
                 {kids
                     ? kids.map((kid, index) => {
                         return <Comment key={index} id={kid} />;
                     })
                     : ""}
-            </Children>
+            </div>
         </div>
     );
 };
@@ -56,7 +46,9 @@ class Comment extends Component {
         return(
             <div className="comments">
                 <IsLoading isFetch={isFetching}>
-                    <CommentAuthor {...data}/>
+                    <div className="card">
+                        <span>{`by ${data ? data.by : EMPTY_STRING}`}</span>
+                    </div>
                     <div>
                         <CommentBody {...data}/>
                     </div>

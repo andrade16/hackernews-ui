@@ -1,7 +1,7 @@
 import React from 'react';
 import {Route, Switch, Redirect } from 'react-router-dom';
 import StoriesRouter from './routes/StoriesRouter';
-import Header from './components/Header';
+import Header from './components/Shared/Header';
 import {GET_TOP_STORIES, GET_NEW_STORIES, GET_BEST_STORIES} from "./constants";
 import FullStory from "./components/FullStory/FullStory";
 import './App.scss';

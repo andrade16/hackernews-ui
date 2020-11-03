@@ -1,8 +1,8 @@
 import React from 'react';
 import AppBar from '@material-ui/core/AppBar';
 import {NavLink, withRouter} from "react-router-dom";
-import YIcon from '../assets/y-combinator-50.png';
-import '../styles/Header.scss'
+import YIcon from '../../assets/y-combinator-50.png';
+import '../../styles/Shared/Header.scss'
 
 
 const Navigation = props => {
