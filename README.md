@@ -1,5 +1,5 @@
 # Hacker News Feed
-This project is an alternative UI for the currently existing [Hacker News Feed](https://news.ycombinator.com/news). 
+This project is an alternate UI for the currently existing [Hacker News Feed](https://news.ycombinator.com/news). 
 The data used for this project is retrieved using the [Firebase](https://www.npmjs.com/package/firebase) npm package. 
 
 ## Set Up Instructions and Commands
@@ -37,11 +37,8 @@ The second image gives a UI breakdown of the FullStory component that renders th
  
 
 
-## Additonal Notes and Ass
-- I know this project does not meet all the requirements. But I figured submitting this was better than submitting nothing. Any feedback is always appreciated!
-- I made the decision to only present the top comments on the initial screen because some stories had hundreds of comments associated with them.\
+## Additional Notes and Assumptions
+- I made the decision to only present the top comments on the initial screen because some stories had hundreds of comments associated with them.
   To render all of those comments when the accordion is down would have rendered a lot of text, making the UI seem cluttered.
   Instead, I decided to make the comments text a link to a separate route, that would then render a full page component with the story card and all the comments associated with that story.  
-- Due to other obligations from work and interviews, I truly cannot ask for an extension to try to complete more requirements. I'm really sorry! I just have a lot on my plate right now. Something I wish I would have had time to add was unit tests.
-- I want to thank you for the opportunity! I mean that, even if you decide not to move forward.  
 
